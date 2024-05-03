@@ -1,0 +1,171 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+    overflow-x: hidden;
+}
+
+#turn-phone-info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+    display: none;
+}
+
+#top-arrow {
+    margin-top: 20px;
+    margin-bottom: -30px;
+    margin-left: -30px;
+}
+
+#turn-phone {
+    margin-top: 30px;
+}
+
+#bottom-arrow {
+    margin-left: 120px;
+}
+
+canvas {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+}
+
+h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 50px;
+    color: rgb(0, 238, 255);
+    opacity: 0;
+    /* Initially hide the h1 */
+    animation: fadeInOut 6s linear forwards;
+    /* Animation for fade in and out, 3s for each */
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0);
+        /* Start with scale 0 */
+    }
+
+    25% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+        /* Scale to 100% */
+    }
+
+    75% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+        /* Stay at 100% scale */
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0);
+        /* Scale back to 0 */
+    }
+}
+
+#first-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(0, 238, 255);
+    opacity: 0;
+    /* Initially hide the h1 */
+    animation: fadeInOut 6s linear forwards;
+    /* Animation for fade in and out, 3s for each */
+}
+
+#second-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(0, 238, 255);
+    opacity: 0;
+    /* Initially hide the second text */
+    animation: fadeInOut 6s linear forwards 8s;
+    /* Animation for fade in and out, 3s for each, starting 2nd after 1st */
+}
+
+#third-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(0, 238, 255);
+    opacity: 0;
+    /* Initially hide the third text */
+    animation: fadeInOut 6s linear forwards 16s;
+    /* Animation for fade in and out, 3s for each, starting 3rd after second text */
+}
+
+#fourth-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(0, 238, 255);
+    opacity: 0;
+    /* Initially hide the third text */
+    animation: fadeInOut 6s linear forwards 25s;
+    /* Animation for fade in and out, 3s for each, starting 3rd after second text */
+}
+
+#fifth-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(0, 238, 255);
+    opacity: 0;
+    /* Initially hide the third text */
+    animation: fadeInOut 6s linear forwards 36s;
+    /* Animation for fade in and out, 3s for each, starting 3rd after second text */
+}
+
+.ball-text {
+    position: fixed;
+    color: rgb(0, 238, 255);
+    font-size: 50px;
+    right: 20%;
+    bottom: 40%;
+    transform: translate(-20%, -40%);
+    display: none;
+}
+
+@media screen and (max-width: 800px) {
+    .ball-text {
+        font-size: 40px;
+        right: 20%;
+        bottom: 55%;
+        transform: translate(20%, 55%);
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+}
+
+@media all and (max-width: 400px) {
+    #wrapper {
+        display: none;
+    }
+
+    #turn-phone-info {
+        display: block;
+    }
+}
