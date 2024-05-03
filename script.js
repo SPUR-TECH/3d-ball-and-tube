@@ -14,11 +14,26 @@ let imagesLoaded = 0;
 function checkImagesLoaded() {
 	imagesLoaded++;
 	if (imagesLoaded === frameCount) {
-		// All images are loaded, hide all h1 elements
-		const h1Elements = document.querySelectorAll("h1");
-		h1Elements.forEach((h1) => {
-			h1.style.display = "none";
-		});
+		// All images are loaded, show .ball-text element
+		gsap.fromTo(
+			".ball-text",
+			{
+				opacity: 0,
+				display: "none", // Initially hide the element
+			},
+			{
+				opacity: 1,
+				display: "block", // Show the element
+				scrollTrigger: {
+					scrub: 1,
+					start: "50%",
+					end: "100%",
+				},
+				onComplete: () => {
+					gsap.to(".ball-text", { opacity: 0 });
+				},
+			},
+		);
 	}
 }
 
@@ -40,26 +55,6 @@ gsap.to(ball, {
 	},
 	onUpdate: render,
 });
-
-gsap.fromTo(
-	".ball-text",
-	{
-		opacity: 0,
-		display: "none", // Initially hide the element
-	},
-	{
-		opacity: 1,
-		display: "block", // Show the element
-		scrollTrigger: {
-			scrub: 1,
-			start: "50%",
-			end: "100%",
-		},
-		onComplete: () => {
-			gsap.to(".ball-text", { opacity: 0 });
-		},
-	},
-);
 
 function render() {
 	context.canvas.width = images[0].width;
