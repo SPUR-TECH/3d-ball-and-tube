@@ -9,7 +9,7 @@ body {
     overflow-x: hidden;
 }
 
-#turn-phone-info {
+/* #turn-phone-info {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -30,12 +30,26 @@ body {
 
 #bottom-arrow {
     margin-left: 120px;
-}
+} */
 
 canvas {
     width: 100vw;
     height: 100vh;
     object-fit: cover;
+}
+
+#fullscreen-btn {
+    position: absolute;
+    left: 10%;
+    top: 10%;
+    transform: translate(-10%, -50%);
+    padding: 10px;
+    background-color: black;
+    font-size: 15px;
+    color: white;
+    border-radius: 5px;
+    border: 2px solid rgb(255, 196, 0);
+    /* display: none; */
 }
 
 #info-text {
@@ -70,17 +84,13 @@ h1 {
     font-size: 50px;
     color: rgb(0, 238, 255);
     opacity: 0;
-    /* Initially hide the h1 */
     animation: fadeInOut 6s linear forwards;
-    /* Animation for fade in and out, 3s for each */
 }
 
 i {
     color: white;
     opacity: 0;
-    /* Initially hide the h1 */
     animation: fadeInOut 6s linear forwards;
-    /* Animation for fade in and out, 3s for each */
 }
 
 b {
@@ -91,112 +101,31 @@ b {
     0% {
         opacity: 0;
         transform: translate(-50%, -50%) scale(0);
-        /* Start with scale 0 */
     }
 
     25% {
         opacity: 1;
         transform: translate(-50%, -50%) scale(1);
-        /* Scale to 100% */
     }
 
     75% {
         opacity: 1;
         transform: translate(-50%, -50%) scale(1);
-        /* Stay at 100% scale */
     }
 
     100% {
         opacity: 0;
         transform: translate(-50%, -50%) scale(0);
-        /* Scale back to 0 */
     }
 }
 
-#first-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: rgb(0, 238, 255);
-    opacity: 0;
-    /* Initially hide the h1 */
-    animation: fadeInOut 6s linear forwards;
-    /* Animation for fade in and out, 3s for each */
-}
-
-#second-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: rgb(0, 238, 255);
-    opacity: 0;
-    /* Initially hide the second text */
-    animation: fadeInOut 6s linear forwards 8s;
-    /* Animation for fade in and out, 3s for each, starting 2nd after 1st */
-}
-
-#third-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: rgb(0, 238, 255);
-    opacity: 0;
-    /* Initially hide the third text */
-    animation: fadeInOut 6s linear forwards 16s;
-    /* Animation for fade in and out, 3s for each, starting 3rd after second text */
-}
-
-#fourth-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: rgb(0, 238, 255);
-    opacity: 0;
-    /* Initially hide the third text */
-    animation: fadeInOut 6s linear forwards 25s;
-    /* Animation for fade in and out, 3s for each, starting 3rd after second text */
-}
-
-#fifth-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: rgb(0, 238, 255);
-    opacity: 0;
-    /* Initially hide the third text */
-    animation: fadeInOut 6s linear forwards 36s;
-    /* Animation for fade in and out, 3s for each, starting 3rd after second text */
-}
-
-#sixth-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: rgb(0, 238, 255);
-    opacity: 0;
-    /* Initially hide the third text */
-    animation: fadeInOut 6s linear forwards 44s;
-    /* Animation for fade in and out, 3s for each, starting 3rd after second text */
-}
-
-#seventh-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: rgb(0, 238, 255);
-    opacity: 0;
-    /* Initially hide the third text */
-    animation: fadeInOut 6s linear forwards 54s;
-    /* Animation for fade in and out, 3s for each, starting 3rd after second text */
-}
-
+#first-text,
+#second-text,
+#third-text,
+#fourth-text,
+#fifth-text,
+#sixth-text,
+#seventh-text,
 #eighth-text {
     position: absolute;
     top: 50%;
@@ -204,9 +133,35 @@ b {
     transform: translate(-50%, -50%);
     color: rgb(0, 238, 255);
     opacity: 0;
-    /* Initially hide the third text */
-    animation: fadeInOut 6s linear forwards 64s;
-    /* Animation for fade in and out, 3s for each, starting 3rd after second text */
+    animation: fadeInOut 6s linear forwards;
+}
+
+#second-text {
+    animation-delay: 8s;
+}
+
+#third-text {
+    animation-delay: 16s;
+}
+
+#fourth-text {
+    animation-delay: 25s;
+}
+
+#fifth-text {
+    animation-delay: 36s;
+}
+
+#sixth-text {
+    animation-delay: 44s;
+}
+
+#seventh-text {
+    animation-delay: 54s;
+}
+
+#eighth-text {
+    animation-delay: 64s;
 }
 
 .ball-text {
@@ -232,7 +187,6 @@ b {
     }
 
     #play-btn {
-        position: absolute;
         left: 50%;
         top: 10%;
         transform: translate(-50%, -10%);
@@ -247,7 +201,7 @@ b {
     }
 }
 
-@media all and (max-width: 400px) {
+/* @media all and (max-width: 400px) {
     #wrapper {
         display: none;
     }
@@ -255,4 +209,4 @@ b {
     #turn-phone-info {
         display: block;
     }
-}
+} */

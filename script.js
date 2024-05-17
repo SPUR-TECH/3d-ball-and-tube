@@ -1,6 +1,4 @@
-// Ensure DOM content is loaded before executing script
 document.addEventListener("DOMContentLoaded", function () {
-	// Disable scrolling until all images are loaded
 	document.body.style.overflow = "hidden";
 
 	const canvas = document.querySelector(".canvas");
@@ -19,33 +17,31 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	function checkImagesLoaded() {
 		imagesLoaded++;
+		console.log(`Image loaded: ${imagesLoaded}/${frameCount}`);
 		if (imagesLoaded === frameCount) {
 			canvas.width = canvasWidth = images[0].width;
 			canvas.height = canvasHeight = images[0].height;
-			render(); // Render once all images are loaded
+			render();
 
-			// Hide the h1 elements if all images are loaded
 			document.querySelectorAll("h1").forEach((h1) => {
 				h1.style.display = "none";
 			});
 
-			// Re-enable scrolling
 			document.body.style.overflow = "auto";
-
-			// Show paragraph and button
 			document.getElementById("info-text").style.display = "block";
 			document.getElementById("play-btn").style.display = "block";
+			document.getElementById("fullscreen-btn").style.display = "block"; // Show fullscreen button
+			console.log("All images loaded. Fullscreen button displayed.");
 
-			// Add onComplete animation for the ".ball-text" element
 			gsap.fromTo(
 				".ball-text",
 				{
 					opacity: 0,
-					display: "none", // Initially hide the element
+					display: "none",
 				},
 				{
 					opacity: 1,
-					display: "block", // Show the element
+					display: "block",
 					scrollTrigger: {
 						scrub: 1,
 						start: "50%",
@@ -79,28 +75,25 @@ document.addEventListener("DOMContentLoaded", function () {
 	});
 
 	function render() {
-		context.clearRect(0, 0, canvasWidth, canvasHeight); // Clear only necessary area
+		context.clearRect(0, 0, canvasWidth, canvasHeight);
 		context.drawImage(images[ball.frame], 0, 0);
 	}
 
-	// Add event listener to the button to play the animation
 	document.getElementById("play-btn").addEventListener("click", function () {
-		const scrollAmount = window.innerHeight / 20; // Adjust the smooth scroll amount as needed
-		smoothScrollDown(scrollAmount, 20); // Smoothly scroll down
+		const scrollAmount = window.innerHeight / 20;
+		smoothScrollDown(scrollAmount, 20);
 
-		// Delay the animation start to sync with scroll
 		setTimeout(function () {
 			gsap.to(ball, {
 				frame: frameCount - 1,
 				snap: "frame",
 				ease: "none",
-				duration: 5, // duration of the animation in seconds
+				duration: 5,
 				onUpdate: render,
 			});
-		}, 1000); // Adjust the delay as needed
+		}, 1000);
 	});
 
-	// Function for smooth scroll down
 	function smoothScrollDown(scrollAmount, steps) {
 		let i = 0;
 		const scrollInterval = setInterval(function () {
@@ -110,6 +103,20 @@ document.addEventListener("DOMContentLoaded", function () {
 			} else {
 				clearInterval(scrollInterval);
 			}
-		}, 50); // Adjust the scroll interval as needed
+		}, 50);
 	}
+
+	document
+		.getElementById("fullscreen-btn")
+		.addEventListener("click", function () {
+			if (document.fullscreenElement) {
+				document.exitFullscreen();
+			} else {
+				document.documentElement.requestFullscreen().catch((err) => {
+					console.log(
+						`Error attempting to enable full-screen mode: ${err.message} (${err.name})`,
+					);
+				});
+			}
+		});
 });
