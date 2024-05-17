@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	const currentFrame = (index) => `./img/ballzy/${(index + 1).toString()}.jpg`;
 
 	const images = [];
-	let ball = { frame: 0 }; // Set initial frame to 0
+	let ball = { frame: 0 };
 	let imagesLoaded = 0;
 	let canvasWidth, canvasHeight;
 
