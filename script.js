@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	const currentFrame = (index) => `./img/ballzy/${(index + 1).toString()}.jpg`;
 
 	const images = [];
-	let ball = { frame: 0 };
+	let ball = { frame: 0 }; // Set initial frame to 0
 	let imagesLoaded = 0;
 	let canvasWidth, canvasHeight;
 
@@ -31,6 +31,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 			// Re-enable scrolling
 			document.body.style.overflow = "auto";
+
+			// Show paragraph and button
+			document.getElementById("info-text").style.display = "block";
+			document.getElementById("play-btn").style.display = "block";
 
 			// Add onComplete animation for the ".ball-text" element
 			gsap.fromTo(
@@ -77,5 +81,35 @@ document.addEventListener("DOMContentLoaded", function () {
 	function render() {
 		context.clearRect(0, 0, canvasWidth, canvasHeight); // Clear only necessary area
 		context.drawImage(images[ball.frame], 0, 0);
+	}
+
+	// Add event listener to the button to play the animation
+	document.getElementById("play-btn").addEventListener("click", function () {
+		const scrollAmount = window.innerHeight / 20; // Adjust the smooth scroll amount as needed
+		smoothScrollDown(scrollAmount, 20); // Smoothly scroll down
+
+		// Delay the animation start to sync with scroll
+		setTimeout(function () {
+			gsap.to(ball, {
+				frame: frameCount - 1,
+				snap: "frame",
+				ease: "none",
+				duration: 5, // duration of the animation in seconds
+				onUpdate: render,
+			});
+		}, 1000); // Adjust the delay as needed
+	});
+
+	// Function for smooth scroll down
+	function smoothScrollDown(scrollAmount, steps) {
+		let i = 0;
+		const scrollInterval = setInterval(function () {
+			if (i < steps) {
+				window.scrollBy(0, scrollAmount);
+				i++;
+			} else {
+				clearInterval(scrollInterval);
+			}
+		}, 50); // Adjust the scroll interval as needed
 	}
 });

@@ -38,10 +38,34 @@ canvas {
     object-fit: cover;
 }
 
+#info-text {
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    transform: translate(-50%, -20%);
+    font-size: 50px;
+    color: rgb(0, 238, 255);
+    display: none;
+}
+
+#play-btn {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 15px;
+    background-color: black;
+    font-size: 20px;
+    color: rgb(0, 238, 255);
+    border-radius: 5px;
+    border: 2px solid rgb(255, 196, 0);
+    display: none;
+}
+
 h1 {
     position: absolute;
-    top: 50%;
     left: 50%;
+    top: 50%;
     transform: translate(-50%, -50%);
     font-size: 50px;
     color: rgb(0, 238, 255);
@@ -49,6 +73,18 @@ h1 {
     /* Initially hide the h1 */
     animation: fadeInOut 6s linear forwards;
     /* Animation for fade in and out, 3s for each */
+}
+
+i {
+    color: white;
+    opacity: 0;
+    /* Initially hide the h1 */
+    animation: fadeInOut 6s linear forwards;
+    /* Animation for fade in and out, 3s for each */
+}
+
+b {
+    color: rgb(199, 0, 0);
 }
 
 @keyframes fadeInOut {
@@ -137,6 +173,42 @@ h1 {
     /* Animation for fade in and out, 3s for each, starting 3rd after second text */
 }
 
+#sixth-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(0, 238, 255);
+    opacity: 0;
+    /* Initially hide the third text */
+    animation: fadeInOut 6s linear forwards 44s;
+    /* Animation for fade in and out, 3s for each, starting 3rd after second text */
+}
+
+#seventh-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(0, 238, 255);
+    opacity: 0;
+    /* Initially hide the third text */
+    animation: fadeInOut 6s linear forwards 54s;
+    /* Animation for fade in and out, 3s for each, starting 3rd after second text */
+}
+
+#eighth-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(0, 238, 255);
+    opacity: 0;
+    /* Initially hide the third text */
+    animation: fadeInOut 6s linear forwards 64s;
+    /* Animation for fade in and out, 3s for each, starting 3rd after second text */
+}
+
 .ball-text {
     position: fixed;
     color: rgb(0, 238, 255);
@@ -157,6 +229,21 @@ h1 {
 
     h1 {
         font-size: 22px;
+    }
+
+    #play-btn {
+        position: absolute;
+        left: 50%;
+        top: 10%;
+        transform: translate(-50%, -10%);
+        padding: 10px;
+        font-size: 15px;
+    }
+
+    #info-text {
+        top: 30%;
+        transform: translate(-50%, -30%);
+        font-size: 20px;
     }
 }
 
